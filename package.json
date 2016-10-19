@@ -1,0 +1,25 @@
+{
+  "name": "week11-hangman",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aksm/Week11-Hangman.git"
+  },
+  "author": "Al Min",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aksm/Week11-Hangman/issues"
+  },
+  "homepage": "https://github.com/aksm/Week11-Hangman#readme",
+  "dependencies": {
+    "array-equal": "^1.0.0",
+    "inquirer": "^1.2.2",
+    "random-word": "^1.0.2",
+    "random-words": "0.0.1"
+  }
+}
