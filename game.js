@@ -77,28 +77,34 @@ var game = function() {
 		switch(status) {
 			case "guess":
 				this.hangman();
+				console.log("\x1b[36m");
 				console.log("Guesses Remaining: "+this.guessCounter+"\n");
 				console.log(letterCheck.letters.join(" ")+"\n");
 				console.log(letterCheck.wrongGuesses.join(", ")+"\n");
 				break;
 			case "win":
 				this.hangman();
+				console.log("\x1b[35m");
 				console.log("Guesses Remaining: "+this.guessCounter+"\n");
 				console.log(letterCheck.letters.join(" ")+"\n");
 				console.log(letterCheck.wrongGuesses.join(", ")+"\n");
 				console.log("YOU WIN!"+"\n");
+				console.log(reset);
 				break;
 			case "lose":
 				this.hangman();
+				console.log("\x1b[31m");
 				console.log("YOU LOSE :("+"\n");
 				reset();
 				console.log("The word was "+this.word.join("")+"\n");
+				console.log(reset);
 				break;
 			default:
 				console.log("Doh! Something went wrong...");
 		}
 	};
 	this.hangman = function() {
+		console.log("\x1b[35m");
 		switch(this.guessCounter) {
 			case 0:
 				console.log(" _                                             ");
@@ -109,6 +115,7 @@ var game = function() {
 				console.log("|_| |_|\\__,_|_| |_|\\__, |_| |_| |_|\\__,_|_| |_|");
 				console.log("                    __/ |                      ");
 				console.log("                   |___/                       ");
+				console.log("\x1b[37m");
 			    console.log(" _________       ");
 			    console.log("|         |      ");
 			    console.log("|         0      ");
@@ -125,6 +132,7 @@ var game = function() {
 				console.log("|_| |_|\\__,_|_| |_|\\__, |_| |_| |_|\\__,_|_| |_|");
 				console.log("                    __/ |                      ");
 				console.log("                   |___/                       ");
+				console.log("\x1b[37m");
 			    console.log(" _________       ");
 			    console.log("|         |      ");
 			    console.log("|         0      ");
@@ -141,6 +149,7 @@ var game = function() {
 				console.log("|_| |_|\\__,_|_| |_|\\__, |_| |_| |_|\\__,_|_| |_|");
 				console.log("                    __/ |                      ");
 				console.log("                   |___/                       ");
+				console.log("\x1b[37m");
 			    console.log(" _________       ");
 			    console.log("|         |      ");
 			    console.log("|         0      ");
@@ -157,6 +166,7 @@ var game = function() {
 				console.log("|_| |_|\\__,_|_| |_|\\__, |_| |_| |_|\\__,_|_| |_|");
 				console.log("                    __/ |                      ");
 				console.log("                   |___/                       ");
+				console.log("\x1b[37m");
 			    console.log(" _________       ");
 			    console.log("|         |      ");
 			    console.log("|         0      ");
@@ -173,6 +183,7 @@ var game = function() {
 				console.log("|_| |_|\\__,_|_| |_|\\__, |_| |_| |_|\\__,_|_| |_|");
 				console.log("                    __/ |                      ");
 				console.log("                   |___/                       ");
+				console.log("\x1b[37m");
 			    console.log(" _________       ");
 			    console.log("|         |      ");
 			    console.log("|         0      ");
@@ -189,6 +200,7 @@ var game = function() {
 				console.log("|_| |_|\\__,_|_| |_|\\__, |_| |_| |_|\\__,_|_| |_|");
 				console.log("                    __/ |                      ");
 				console.log("                   |___/                       ");
+				console.log("\x1b[37m");
 			    console.log(" _________       ");
 			    console.log("|         |      ");
 			    console.log("|         0      ");
@@ -205,6 +217,7 @@ var game = function() {
 				console.log("|_| |_|\\__,_|_| |_|\\__, |_| |_| |_|\\__,_|_| |_|");
 				console.log("                    __/ |                      ");
 				console.log("                   |___/                       ");
+				console.log("\x1b[37m");
 			    console.log(" _________       ");
 			    console.log("|         |      ");
 			    console.log("|         	      ");
@@ -221,6 +234,7 @@ var game = function() {
 				console.log("|_| |_|\\__,_|_| |_|\\__, |_| |_| |_|\\__,_|_| |_|");
 				console.log("                    __/ |                      ");
 				console.log("                   |___/                       ");
+				console.log("\x1b[37m");
 			    console.log(" _________       ");
 			    console.log("|                ");
 			    console.log("|         	      ");
@@ -237,6 +251,7 @@ var game = function() {
 				console.log("|_| |_|\\__,_|_| |_|\\__, |_| |_| |_|\\__,_|_| |_|");
 				console.log("                    __/ |                      ");
 				console.log("                   |___/                       ");
+				console.log("\x1b[37m");
 			    console.log("                 ");
 			    console.log("|                ");
 			    console.log("|         	      ");
@@ -253,6 +268,7 @@ var game = function() {
 				console.log("|_| |_|\\__,_|_| |_|\\__, |_| |_| |_|\\__,_|_| |_|");
 				console.log("                    __/ |                      ");
 				console.log("                   |___/                       ");
+				console.log("\x1b[37m");
 			    console.log("                 ");
 			    console.log("                 ");
 			    console.log("|         	      ");
@@ -269,6 +285,7 @@ var game = function() {
 				console.log("|_| |_|\\__,_|_| |_|\\__, |_| |_| |_|\\__,_|_| |_|");
 				console.log("                    __/ |                      ");
 				console.log("                   |___/                       ");
+				console.log("\x1b[37m");
 			    console.log("                 ");
 			    console.log("                 ");
 			    console.log("          	      ");
@@ -285,6 +302,7 @@ var game = function() {
 				console.log("|_| |_|\\__,_|_| |_|\\__, |_| |_| |_|\\__,_|_| |_|");
 				console.log("                    __/ |                      ");
 				console.log("                   |___/                       ");
+				console.log("\x1b[37m");
 			    console.log("                 ");
 			    console.log("                 ");
 			    console.log("          	      ");
@@ -301,6 +319,7 @@ var game = function() {
 				console.log("|_| |_|\\__,_|_| |_|\\__, |_| |_| |_|\\__,_|_| |_|");
 				console.log("                    __/ |                      ");
 				console.log("                   |___/                       ");
+				console.log("\x1b[37m");
 			    console.log("                 ");
 			    console.log("                 ");
 			    console.log("          	      ");
