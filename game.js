@@ -4,6 +4,7 @@ var getWord = require("./word.js");
 
 // load packages
 var equals = require("array-equal");
+var clear = require("clear");
 
 // global variables
 var letterCheck;
@@ -12,24 +13,28 @@ var letterCheck;
 var game = function() {
 	// store word
 	this.word = [];
+	this.guessCounter = 13;
 	this.guess = function(guess) {
+		clear();
 		guess = guess.toUpperCase();
 		var right = letterCheck.rightGuesses;
 		var wrong = letterCheck.wrongGuesses;
-		if( right.indexOf(guess) === -1 &&  wrong.indexOf(guess) === -1) {
-			var i = this.word.indexOf(guess); 
+		if(right.indexOf(guess) === -1 &&  wrong.indexOf(guess) === -1) {
+			var i = this.word.indexOf(guess);
+			if(i === -1) {
+				this.guessCounter--;
+				wrong.push(guess);
+				console.log("Guesses Remaining: "+this.guessCounter);
+			}
+			console.log("Guesses Remaining: "+this.guessCounter);
 			while(i != -1) {
-			// switch(i != -1) {
-			// 	case true:
-					letterCheck.letters[i] = guess;
-					right[i] = guess;
-					i = this.word.indexOf(guess, i+1);
-					console.log(letterCheck.letters);
-					// right.push(guess);
+				letterCheck.letters[i] = guess;
+				right[i] = guess;
+				i = this.word.indexOf(guess, i + 1);
+				console.log(letterCheck.letters);
 			}
 			console.log(right, this.word);
 			return equals(right,this.word);
-			// return false;
 		}
 	};
 	this.level = function(level) {

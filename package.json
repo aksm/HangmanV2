@@ -18,6 +18,7 @@
   "homepage": "https://github.com/aksm/Week11-Hangman#readme",
   "dependencies": {
     "array-equal": "^1.0.0",
+    "clear": "0.0.1",
     "inquirer": "^1.2.2",
     "random-word": "^1.0.2",
     "random-words": "0.0.1"

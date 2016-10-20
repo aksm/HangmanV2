@@ -13,6 +13,8 @@ var guess = function() {
 	}]).then(function(answer) {
 		if(currentGame.guess(answer.guessLetter)) {
 			console.log("YOU WIN!");
+		} else if (currentGame.guessCounter === 0) {
+			console.log("YOU LOSE :(");
 		} else {
 			guess();
 		}
