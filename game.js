@@ -13,9 +13,12 @@ var letterCheck;
 var game = function() {
 	// store word
 	this.word = [];
+
+	// initialize counter for guesses
 	this.guessCounter = 13;
+
+	// method for tracking guesses
 	this.guess = function(guess) {
-		clear();
 		guess = guess.toUpperCase();
 		var right = letterCheck.rightGuesses;
 		var wrong = letterCheck.wrongGuesses;
@@ -24,19 +27,18 @@ var game = function() {
 			if(i === -1) {
 				this.guessCounter--;
 				wrong.push(guess);
-				console.log("Guesses Remaining: "+this.guessCounter);
+				this.display();
 			}
-			console.log("Guesses Remaining: "+this.guessCounter);
 			while(i != -1) {
 				letterCheck.letters[i] = guess;
 				right[i] = guess;
 				i = this.word.indexOf(guess, i + 1);
-				console.log(letterCheck.letters);
 			}
-			console.log(right, this.word);
 			return equals(right,this.word);
 		}
 	};
+
+	// method for initializing word based on chosen difficulty level
 	this.level = function(level) {
 		var word = new getWord();
 		letterCheck = new letter();
@@ -46,7 +48,6 @@ var game = function() {
 				for(var i = 0; i < this.word.length; i++) {
 					letterCheck.letters.push("_");
 				}
-				console.log(letterCheck.letters);
 				break;
 			case "Hard":
 				this.word = word.hardWord;
@@ -58,6 +59,14 @@ var game = function() {
 				console.log("Oops, something went wrong.");
 
 		}
+	};
+
+	this.display = function() {
+		clear();
+		console.log("Guesses Remaining: "+this.guessCounter+"\n");
+		console.log(letterCheck.letters.join(" ")+"\n");
+		console.log(letterCheck.wrongGuesses.join(", ")+"\n");
+
 	};
 };
 module.exports = game;

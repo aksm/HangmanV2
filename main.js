@@ -3,6 +3,7 @@ var game = require("./game.js");
 var currentGame;
 
 var guess = function() {
+	currentGame.display();
 	inquirer.prompt([{
 		type: "input",
 		name: "guessLetter",
@@ -12,9 +13,11 @@ var guess = function() {
 		}
 	}]).then(function(answer) {
 		if(currentGame.guess(answer.guessLetter)) {
+			currentGame.display();
 			console.log("YOU WIN!");
 		} else if (currentGame.guessCounter === 0) {
-			console.log("YOU LOSE :(");
+			console.log("YOU LOSE :("+"\n");
+			console.log("The word was "+currentGame.word.join("")+"\n");
 		} else {
 			guess();
 		}
@@ -33,6 +36,5 @@ inquirer.prompt([{
 ]).then(function (answer) {
 	currentGame = new game();
 	currentGame.level(answer.difficulty);
-	console.log(currentGame.word);
 	guess();
 });
