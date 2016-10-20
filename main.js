@@ -1,9 +1,13 @@
+// load modules
 var inquirer = require("inquirer");
 var game = require("./game.js");
+
+// initialize global variable for storing new game
 var currentGame;
 
+// inquirer prompt function for guessing
 var guess = function() {
-	currentGame.display();
+	currentGame.display("guess");
 	inquirer.prompt([{
 		type: "input",
 		name: "guessLetter",
@@ -13,17 +17,16 @@ var guess = function() {
 		}
 	}]).then(function(answer) {
 		if(currentGame.guess(answer.guessLetter)) {
-			currentGame.display();
-			console.log("YOU WIN!");
+			currentGame.display("win");
 		} else if (currentGame.guessCounter === 0) {
-			console.log("YOU LOSE :("+"\n");
-			console.log("The word was "+currentGame.word.join("")+"\n");
+			currentGame.display("lose");
 		} else {
 			guess();
 		}
 	});
 };
 
+// Initial inquirer prompt to select difficulty
 inquirer.prompt([{
 	type: "list",
 	name: "difficulty",

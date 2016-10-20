@@ -1,8 +1,6 @@
 // load modules
 var letter = require("./letter.js");
 var getWord = require("./word.js");
-
-// load packages
 var equals = require("array-equal");
 var clear = require("clear");
 
@@ -19,21 +17,33 @@ var game = function() {
 
 	// method for tracking guesses
 	this.guess = function(guess) {
+		// standardize guess case
 		guess = guess.toUpperCase();
+
+		// store right and wrong guess arrays
 		var right = letterCheck.rightGuesses;
 		var wrong = letterCheck.wrongGuesses;
+
+		// filter out letters already guessed
 		if(right.indexOf(guess) === -1 &&  wrong.indexOf(guess) === -1) {
+			// store word's index of guessed letter
 			var i = this.word.indexOf(guess);
+
+			// process wrong guesses
 			if(i === -1) {
 				this.guessCounter--;
 				wrong.push(guess);
 				this.display();
 			}
+
+			// process correct guesses
 			while(i != -1) {
 				letterCheck.letters[i] = guess;
 				right[i] = guess;
 				i = this.word.indexOf(guess, i + 1);
 			}
+
+			// check correct guesses against word
 			return equals(right,this.word);
 		}
 	};
@@ -61,12 +71,28 @@ var game = function() {
 		}
 	};
 
-	this.display = function() {
+	// method for displaying game to terminal
+	this.display = function(status) {
 		clear();
-		console.log("Guesses Remaining: "+this.guessCounter+"\n");
-		console.log(letterCheck.letters.join(" ")+"\n");
-		console.log(letterCheck.wrongGuesses.join(", ")+"\n");
-
+		switch(status) {
+			case "guess":
+				console.log("Guesses Remaining: "+this.guessCounter+"\n");
+				console.log(letterCheck.letters.join(" ")+"\n");
+				console.log(letterCheck.wrongGuesses.join(", ")+"\n");
+				break;
+			case "win":
+				console.log("Guesses Remaining: "+this.guessCounter+"\n");
+				console.log(letterCheck.letters.join(" ")+"\n");
+				console.log(letterCheck.wrongGuesses.join(", ")+"\n");
+				console.log("YOU WIN!"+"\n");
+				break;
+			case "lose":
+				console.log("YOU LOSE :("+"\n");
+				console.log("The word was "+this.word.join("")+"\n");
+				break;
+			default:
+				console.log("Doh! Something went wrong...");
+		}
 	};
 };
 module.exports = game;
