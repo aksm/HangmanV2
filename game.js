@@ -76,22 +76,254 @@ var game = function() {
 		clear();
 		switch(status) {
 			case "guess":
+				this.hangman();
 				console.log("Guesses Remaining: "+this.guessCounter+"\n");
 				console.log(letterCheck.letters.join(" ")+"\n");
 				console.log(letterCheck.wrongGuesses.join(", ")+"\n");
 				break;
 			case "win":
+				this.hangman();
 				console.log("Guesses Remaining: "+this.guessCounter+"\n");
 				console.log(letterCheck.letters.join(" ")+"\n");
 				console.log(letterCheck.wrongGuesses.join(", ")+"\n");
 				console.log("YOU WIN!"+"\n");
 				break;
 			case "lose":
+				this.hangman();
 				console.log("YOU LOSE :("+"\n");
+				reset();
 				console.log("The word was "+this.word.join("")+"\n");
 				break;
 			default:
 				console.log("Doh! Something went wrong...");
+		}
+	};
+	this.hangman = function() {
+		switch(this.guessCounter) {
+			case 0:
+				console.log(" _                                             ");
+				console.log("| |                                            ");
+				console.log("| |__   __ _ _ __   __ _ _ __ ___   __ _ _ __  ");
+				console.log("| '_ \\ / _` | '_ \\ / _` | '_ ` _ \\ / _` | '_ \\ ");
+				console.log("| | | | (_| | | | | (_| | | | | | | (_| | | | |");
+				console.log("|_| |_|\\__,_|_| |_|\\__, |_| |_| |_|\\__,_|_| |_|");
+				console.log("                    __/ |                      ");
+				console.log("                   |___/                       ");
+			    console.log(" _________       ");
+			    console.log("|         |      ");
+			    console.log("|         0      ");
+			    console.log("|        /|\\    ");
+			    console.log("|        / \\    ");
+			    console.log("|              \n");
+			    break;
+			case 1:
+				console.log(" _                                             ");
+				console.log("| |                                            ");
+				console.log("| |__   __ _ _ __   __ _ _ __ ___   __ _ _ __  ");
+				console.log("| '_ \\ / _` | '_ \\ / _` | '_ ` _ \\ / _` | '_ \\ ");
+				console.log("| | | | (_| | | | | (_| | | | | | | (_| | | | |");
+				console.log("|_| |_|\\__,_|_| |_|\\__, |_| |_| |_|\\__,_|_| |_|");
+				console.log("                    __/ |                      ");
+				console.log("                   |___/                       ");
+			    console.log(" _________       ");
+			    console.log("|         |      ");
+			    console.log("|         0      ");
+			    console.log("|        /|\\    ");
+			    console.log("|        /       ");
+			    console.log("|              \n");
+			    break;
+			case 2:
+				console.log(" _                                             ");
+				console.log("| |                                            ");
+				console.log("| |__   __ _ _ __   __ _ _ __ ___   __ _ _ __  ");
+				console.log("| '_ \\ / _` | '_ \\ / _` | '_ ` _ \\ / _` | '_ \\ ");
+				console.log("| | | | (_| | | | | (_| | | | | | | (_| | | | |");
+				console.log("|_| |_|\\__,_|_| |_|\\__, |_| |_| |_|\\__,_|_| |_|");
+				console.log("                    __/ |                      ");
+				console.log("                   |___/                       ");
+			    console.log(" _________       ");
+			    console.log("|         |      ");
+			    console.log("|         0      ");
+			    console.log("|        /|\\    ");
+			    console.log("|                ");
+			    console.log("|              \n");
+			    break;
+			case 3:
+				console.log(" _                                             ");
+				console.log("| |                                            ");
+				console.log("| |__   __ _ _ __   __ _ _ __ ___   __ _ _ __  ");
+				console.log("| '_ \\ / _` | '_ \\ / _` | '_ ` _ \\ / _` | '_ \\ ");
+				console.log("| | | | (_| | | | | (_| | | | | | | (_| | | | |");
+				console.log("|_| |_|\\__,_|_| |_|\\__, |_| |_| |_|\\__,_|_| |_|");
+				console.log("                    __/ |                      ");
+				console.log("                   |___/                       ");
+			    console.log(" _________       ");
+			    console.log("|         |      ");
+			    console.log("|         0      ");
+			    console.log("|        /|      ");
+			    console.log("|                ");
+			    console.log("|              \n");
+			    break;
+			case 4:
+				console.log(" _                                             ");
+				console.log("| |                                            ");
+				console.log("| |__   __ _ _ __   __ _ _ __ ___   __ _ _ __  ");
+				console.log("| '_ \\ / _` | '_ \\ / _` | '_ ` _ \\ / _` | '_ \\ ");
+				console.log("| | | | (_| | | | | (_| | | | | | | (_| | | | |");
+				console.log("|_| |_|\\__,_|_| |_|\\__, |_| |_| |_|\\__,_|_| |_|");
+				console.log("                    __/ |                      ");
+				console.log("                   |___/                       ");
+			    console.log(" _________       ");
+			    console.log("|         |      ");
+			    console.log("|         0      ");
+			    console.log("|         |      ");
+			    console.log("|                ");
+			    console.log("|              \n");
+			    break;
+			case 5:
+				console.log(" _                                             ");
+				console.log("| |                                            ");
+				console.log("| |__   __ _ _ __   __ _ _ __ ___   __ _ _ __  ");
+				console.log("| '_ \\ / _` | '_ \\ / _` | '_ ` _ \\ / _` | '_ \\ ");
+				console.log("| | | | (_| | | | | (_| | | | | | | (_| | | | |");
+				console.log("|_| |_|\\__,_|_| |_|\\__, |_| |_| |_|\\__,_|_| |_|");
+				console.log("                    __/ |                      ");
+				console.log("                   |___/                       ");
+			    console.log(" _________       ");
+			    console.log("|         |      ");
+			    console.log("|         0      ");
+			    console.log("|                ");
+			    console.log("|                ");
+			    console.log("|              \n");
+			    break;
+			case 6:
+				console.log(" _                                             ");
+				console.log("| |                                            ");
+				console.log("| |__   __ _ _ __   __ _ _ __ ___   __ _ _ __  ");
+				console.log("| '_ \\ / _` | '_ \\ / _` | '_ ` _ \\ / _` | '_ \\ ");
+				console.log("| | | | (_| | | | | (_| | | | | | | (_| | | | |");
+				console.log("|_| |_|\\__,_|_| |_|\\__, |_| |_| |_|\\__,_|_| |_|");
+				console.log("                    __/ |                      ");
+				console.log("                   |___/                       ");
+			    console.log(" _________       ");
+			    console.log("|         |      ");
+			    console.log("|         	      ");
+			    console.log("|                ");
+			    console.log("|                ");
+			    console.log("|              \n");
+			    break;
+			case 7:
+				console.log(" _                                             ");
+				console.log("| |                                            ");
+				console.log("| |__   __ _ _ __   __ _ _ __ ___   __ _ _ __  ");
+				console.log("| '_ \\ / _` | '_ \\ / _` | '_ ` _ \\ / _` | '_ \\ ");
+				console.log("| | | | (_| | | | | (_| | | | | | | (_| | | | |");
+				console.log("|_| |_|\\__,_|_| |_|\\__, |_| |_| |_|\\__,_|_| |_|");
+				console.log("                    __/ |                      ");
+				console.log("                   |___/                       ");
+			    console.log(" _________       ");
+			    console.log("|                ");
+			    console.log("|         	      ");
+			    console.log("|                ");
+			    console.log("|                ");
+			    console.log("|              \n");
+			    break;
+			case 8:
+				console.log(" _                                             ");
+				console.log("| |                                            ");
+				console.log("| |__   __ _ _ __   __ _ _ __ ___   __ _ _ __  ");
+				console.log("| '_ \\ / _` | '_ \\ / _` | '_ ` _ \\ / _` | '_ \\ ");
+				console.log("| | | | (_| | | | | (_| | | | | | | (_| | | | |");
+				console.log("|_| |_|\\__,_|_| |_|\\__, |_| |_| |_|\\__,_|_| |_|");
+				console.log("                    __/ |                      ");
+				console.log("                   |___/                       ");
+			    console.log("                 ");
+			    console.log("|                ");
+			    console.log("|         	      ");
+			    console.log("|                ");
+			    console.log("|                ");
+			    console.log("|              \n");
+			    break;
+			case 9:
+				console.log(" _                                             ");
+				console.log("| |                                            ");
+				console.log("| |__   __ _ _ __   __ _ _ __ ___   __ _ _ __  ");
+				console.log("| '_ \\ / _` | '_ \\ / _` | '_ ` _ \\ / _` | '_ \\ ");
+				console.log("| | | | (_| | | | | (_| | | | | | | (_| | | | |");
+				console.log("|_| |_|\\__,_|_| |_|\\__, |_| |_| |_|\\__,_|_| |_|");
+				console.log("                    __/ |                      ");
+				console.log("                   |___/                       ");
+			    console.log("                 ");
+			    console.log("                 ");
+			    console.log("|         	      ");
+			    console.log("|                ");
+			    console.log("|                ");
+			    console.log("|              \n");
+			    break;
+			case 10:
+				console.log(" _                                             ");
+				console.log("| |                                            ");
+				console.log("| |__   __ _ _ __   __ _ _ __ ___   __ _ _ __  ");
+				console.log("| '_ \\ / _` | '_ \\ / _` | '_ ` _ \\ / _` | '_ \\ ");
+				console.log("| | | | (_| | | | | (_| | | | | | | (_| | | | |");
+				console.log("|_| |_|\\__,_|_| |_|\\__, |_| |_| |_|\\__,_|_| |_|");
+				console.log("                    __/ |                      ");
+				console.log("                   |___/                       ");
+			    console.log("                 ");
+			    console.log("                 ");
+			    console.log("          	      ");
+			    console.log("|                ");
+			    console.log("|                ");
+			    console.log("|              \n");
+			    break;
+			case 11:
+				console.log(" _                                             ");
+				console.log("| |                                            ");
+				console.log("| |__   __ _ _ __   __ _ _ __ ___   __ _ _ __  ");
+				console.log("| '_ \\ / _` | '_ \\ / _` | '_ ` _ \\ / _` | '_ \\ ");
+				console.log("| | | | (_| | | | | (_| | | | | | | (_| | | | |");
+				console.log("|_| |_|\\__,_|_| |_|\\__, |_| |_| |_|\\__,_|_| |_|");
+				console.log("                    __/ |                      ");
+				console.log("                   |___/                       ");
+			    console.log("                 ");
+			    console.log("                 ");
+			    console.log("          	      ");
+			    console.log("                 ");
+			    console.log("|                ");
+			    console.log("|              \n");
+			    break;
+			case 12:
+				console.log(" _                                             ");
+				console.log("| |                                            ");
+				console.log("| |__   __ _ _ __   __ _ _ __ ___   __ _ _ __  ");
+				console.log("| '_ \\ / _` | '_ \\ / _` | '_ ` _ \\ / _` | '_ \\ ");
+				console.log("| | | | (_| | | | | (_| | | | | | | (_| | | | |");
+				console.log("|_| |_|\\__,_|_| |_|\\__, |_| |_| |_|\\__,_|_| |_|");
+				console.log("                    __/ |                      ");
+				console.log("                   |___/                       ");
+			    console.log("                 ");
+			    console.log("                 ");
+			    console.log("          	      ");
+			    console.log("                 ");
+			    console.log("                 ");
+			    console.log("|              \n");
+			    break;
+			case 13:
+				console.log(" _                                             ");
+				console.log("| |                                            ");
+				console.log("| |__   __ _ _ __   __ _ _ __ ___   __ _ _ __  ");
+				console.log("| '_ \\ / _` | '_ \\ / _` | '_ ` _ \\ / _` | '_ \\ ");
+				console.log("| | | | (_| | | | | (_| | | | | | | (_| | | | |");
+				console.log("|_| |_|\\__,_|_| |_|\\__, |_| |_| |_|\\__,_|_| |_|");
+				console.log("                    __/ |                      ");
+				console.log("                   |___/                       ");
+			    console.log("                 ");
+			    console.log("                 ");
+			    console.log("          	      ");
+			    console.log("                 ");
+			    console.log("                 ");
+			    console.log("               \n");
+
 		}
 	};
 };
