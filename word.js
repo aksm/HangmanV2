@@ -1,12 +1,14 @@
-// easy
+// easy word
 var randomWords = require("random-words");
 
-// difficult
+// difficult word
 var randomWord = require("random-word");
 
 // word constructor
 var getWord = function() {
-	this.easyWord = randomWords();
-	this.hardWord = randomWord();
+	var easy = randomWords().toUpperCase();
+	var hard = randomWord().toUpperCase();
+	this.easyWord = easy.split("");
+	this.hardWord = hard.split("");
 };
 module.exports = getWord;

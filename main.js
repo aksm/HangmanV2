@@ -1,14 +1,21 @@
 var inquirer = require("inquirer");
-var getWord = require("./game.js");
-var word;
+var game = require("./game.js");
+var currentGame;
 
 var guess = function() {
 	inquirer.prompt([{
 		type: "input",
 		name: "guessLetter",
-		message: "Guess a letter."
-	}]).then(function() {
-
+		message: "Guess a letter.",
+		validate: function(str) {
+			return str.length === 1;
+		}
+	}]).then(function(answer) {
+		if(currentGame.guess(answer.guessLetter)) {
+			console.log("YOU WIN!");
+		} else {
+			guess();
+		}
 	});
 };
 
@@ -21,17 +28,9 @@ inquirer.prompt([{
 		"Hard"
 	]
 }
-]).then(function (answers) {
-	word = new getWord();
-	switch(answers.difficulty) {
-		case "Easy":
-			console.log(word.easyWord);
-			break;
-		case "Hard":
-			console.log(word.hardWord);
-			break;
-		default:
-			console.log("Oops.");
-
-	}
+]).then(function (answer) {
+	currentGame = new game();
+	currentGame.level(answer.difficulty);
+	console.log(currentGame.word);
+	guess();
 });
